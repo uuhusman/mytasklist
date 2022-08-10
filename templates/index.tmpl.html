@@ -1,0 +1,54 @@
+<html>
+  {{template "header.tmpl.html"}}
+<body>
+  <!-- {{template "nav.tmpl.html"}} -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalForm">Add New Task</button>
+      <h3><span class="glyphicon glyphicon-info-sign"></span> My Task List</h3>
+      <table id="tableTask" class="table table-striped" style="width:100%">
+      </table>
+    </div>
+  </div> <!-- row -->
+</div>
+<div id="modalForm" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Form Task</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form id="taskForm" method="post" action="/save">
+              <input type="hidden" name="id" value="">
+              <div class="row mb-3">
+                <label for="task" class="col-sm-2 col-form-label">Task</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" name="task"></textarea>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="assignee" class="col-sm-2 col-form-label">Assignee</label>
+                <div class="col-sm-10">
+                  <input type="text" name="assignee" class="form-control" id="assignee">
+                </div>
+              </div>
+              <div class="row mb-3">
+                  <label for="assignee" class="col-sm-2 col-form-label">Deadline</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="deadline" class="form-control datepicker" id="deadline">
+                  </div>
+                </div>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" onclick="saveTask()" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
